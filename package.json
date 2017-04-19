@@ -1,13 +1,13 @@
 {
-  "name": "react-images",
-  "version": "0.5.2",
+  "name": "react-images-with-youtube",
+  "version": "0.1.0",
   "description": "A simple, responsive lightbox component for displaying an array of images with React.js",
   "main": "lib/Lightbox.js",
   "author": "Joss Mackison",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jossmac/react-images.git"
+    "url": "https://github.com/BrendanFDMoore/react-images.git"
   },
   "dependencies": {
     "aphrodite": "^0.5.0",
@@ -45,13 +45,14 @@
     "watch": "gulp watch:lib"
   },
   "bugs": {
-    "url": "https://github.com/jossmac/react-images/issues"
+    "url": "https://github.com/BrendanFDMoore/react-images/issues"
   },
-  "homepage": "http://jossmac.github.io/react-images",
+  "homepage": "http://BrendanFDMoore.github.io/react-images",
   "keywords": [
     "react",
     "react-component",
     "react-images",
+    "react-images-with-youtube",
     "react-lightbox",
     "react-carousel",
     "react-gallery",
@@ -61,6 +62,7 @@
     "react gallery",
     "lightbox",
     "carousel",
+    "youtube",
     "gallery"
   ]
 }

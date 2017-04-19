@@ -217,6 +217,26 @@ class Lightbox extends Component {
 		const thumbnailsSize = showThumbnails ? theme.thumbnail.size : 0;
 		const heightOffset = `${theme.header.height + theme.footer.height + thumbnailsSize + (theme.container.gutter.vertical)}px`;
 
+		const imageOrVideoEmbed = image.youtubeVideoId
+			? <iframe
+				width="560"
+				height="315"
+				src={`//www.youtube.com/embed/${image.youtubeVideoId}?autoplay=1`}
+				frameBorder="0"
+				allowfullscreen></iframe>
+			: <img
+				className={css(classes.image)}
+				onClick={!!onClickImage && onClickImage}
+				sizes={sizes}
+				alt={image.alt}
+				src={image.src}
+				srcSet={srcset}
+				style={{
+					cursor: this.props.onClickImage ? 'pointer' : 'auto',
+					maxHeight: `calc(100vh - ${heightOffset})`,
+				}}
+				/>;
+
 		return (
 			<figure className={css(classes.figure)}>
 				{/*
@@ -224,18 +244,7 @@ class Lightbox extends Component {
 					https://fb.me/react-unknown-prop is resolved
 					<Swipeable onSwipedLeft={this.gotoNext} onSwipedRight={this.gotoPrev} />
 				*/}
-				<img
-					className={css(classes.image)}
-					onClick={!!onClickImage && onClickImage}
-					sizes={sizes}
-					alt={image.alt}
-					src={image.src}
-					srcSet={srcset}
-					style={{
-						cursor: this.props.onClickImage ? 'pointer' : 'auto',
-						maxHeight: `calc(100vh - ${heightOffset})`,
-					}}
-				/>
+				{imageOrVideoEmbed}
 				<Footer
 					caption={images[currentImage].caption}
 					countCurrent={currentImage + 1}

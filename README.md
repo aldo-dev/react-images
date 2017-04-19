@@ -1,3 +1,7 @@
+# This Fork - Support Youtube Videos
+
+This is a fork of React Images (see below) which adds support we needed to display Youtube videos within the lightbox carousel. To enable this, I modified the `render()` function to check the current `image` for my `youtubeVideoId` property. If such a value is found, we render a Youtube `iframe` of the video instead of the image. That is the only change here.
+
 # React Images
 
 [![Join the chat at https://gitter.im/react-images/Lobby](https://badges.gitter.im/react-images/Lobby.svg)](https://gitter.im/react-images/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
