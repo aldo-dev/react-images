@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { css, StyleSheet } from 'aphrodite/no-important';
-import Lightbox from 'react-images';
+import Lightbox from 'react-images-with-youtube';
 
 class Gallery extends Component {
 	constructor () {
