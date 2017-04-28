@@ -218,12 +218,16 @@ class Lightbox extends Component {
 		const heightOffset = `${theme.header.height + theme.footer.height + thumbnailsSize + (theme.container.gutter.vertical)}px`;
 
 		const imageOrVideoEmbed = image.youtubeVideoId
-			? <iframe
-				width="560"
-				height="315"
-				src={`//www.youtube.com/embed/${image.youtubeVideoId}?autoplay=1`}
-				frameBorder="0"
-				allowfullscreen></iframe>
+			? <div
+				className={css(classes.videoWrapper)}>
+          <iframe
+					className={css(classes.wrappedVideoIframe)}
+					width={'560'}
+					height={'315'}
+					src={`//www.youtube.com/embed/${image.youtubeVideoId}?autoplay=1`}
+					frameBorder={'0'}
+					allowfullscreen></iframe>
+				</div>
 			: <img
 				className={css(classes.image)}
 				onClick={!!onClickImage && onClickImage}
@@ -330,6 +334,7 @@ Lightbox.childContextTypes = {
 const classes = StyleSheet.create({
 	content: {
 		position: 'relative',
+		width: '80%',
 	},
 	figure: {
 		margin: 0, // remove browser default
@@ -343,6 +348,19 @@ const classes = StyleSheet.create({
 		// disable user select
 		WebkitTouchCallout: 'none',
 		userSelect: 'none',
+	},
+	videoWrapper: {
+		position: 'relative',
+		paddingBottom: '56.25%',
+		paddingTop: '25px',
+		height: 0,
+	},
+	wrappedVideoIframe: {
+		position: 'absolute',
+		top: 0,
+		left: 0,
+		width: '100%',
+		height: '100%',
 	},
 });
 

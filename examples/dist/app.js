@@ -3,6 +3,8 @@ require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof requ
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } }
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -33,9 +35,9 @@ function makeUnsplashThumbnail(id) {
 var DEFAULT_IMAGES = [{ id: '1470619549108-b85c56fe5be8', caption: 'Photo by Alan Emery', orientation: 'square', useForDemo: true }, // https://unsplash.com/photos/SYzUF6XcWBY (Flamingo)
 { id: '1471079502516-250c19af6928', caption: 'Photo by Jeremy Bishop', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/GIpGxe2_cT4 (Turtle)
 { id: '1454023492550-5696f8ff10e1', caption: 'Photo by Jessica Weiller', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/LmVSKeDy6EA (Tiger)
-{ id: '1470854989922-5be2f7456d78', caption: 'Photo by Piotr Łaskawski', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/GXMr7BadXQo (Hedgehog)
-{ id: '1470317596697-cbdeda56f999', caption: 'Photo by Michel Bosma', orientation: 'landscape', useForDemo: true }];
-// https://unsplash.com/photos/XgF9e93Tkt0 (Ladybug)
+{ id: '1470854989922-5be2f7456d78', caption: 'Photo by Piotr Łaskawski', orientation: 'landscape', useForDemo: true }];
+// https://unsplash.com/photos/GXMr7BadXQo (Hedgehog)
+// { id: '1470317596697-cbdeda56f999', caption: 'Photo by Michel Bosma', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/XgF9e93Tkt0 (Ladybug)
 var THEMED_IMAGES = [{ id: '1471101173712-b9884175254e', caption: 'Photo by Pedro Lastra', orientation: 'square', useForDemo: true }, // https://unsplash.com/photos/5oRzZU5uwSM (Dragonfly)
 { id: '1471127432458-65206be149c9', caption: 'Photo by Ernesto Velázquez', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/Kpgt4pl03O0 (Deer)
 { id: '1470777639313-60af88918203', caption: 'Photo by Cris Saur', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/GNUcUx-iObg (Koala)
@@ -150,7 +152,7 @@ var theme = {
 		null,
 		'Default Options'
 	),
-	_react2['default'].createElement(_componentsGallery2['default'], { images: DEFAULT_IMAGES.map(function (_ref) {
+	_react2['default'].createElement(_componentsGallery2['default'], { images: [].concat(_toConsumableArray(DEFAULT_IMAGES.map(function (_ref) {
 			var caption = _ref.caption;
 			var id = _ref.id;
 			var orientation = _ref.orientation;
@@ -163,7 +165,15 @@ var theme = {
 				orientation: orientation,
 				useForDemo: useForDemo
 			};
-		}) }),
+		})), [{
+			src: 'http://i3.ytimg.com/vi/MhkGQAoc7bc/hqdefault.jpg',
+			thumbnail: 'http://i3.ytimg.com/vi/MhkGQAoc7bc/hqdefault.jpg',
+			srcset: ['http://i3.ytimg.com/vi/MhkGQAoc7bc/hqdefault.jpg'],
+			caption: 'Learn Reactjs!',
+			youtubeVideoId: 'MhkGQAoc7bc',
+			orientation: 'landscape',
+			useForDemo: true
+		}]) }),
 	_react2['default'].createElement(
 		'h3',
 		null,

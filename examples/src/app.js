@@ -24,7 +24,7 @@ const DEFAULT_IMAGES = [
 	{ id: '1471079502516-250c19af6928', caption: 'Photo by Jeremy Bishop', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/GIpGxe2_cT4 (Turtle)
 	{ id: '1454023492550-5696f8ff10e1', caption: 'Photo by Jessica Weiller', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/LmVSKeDy6EA (Tiger)
 	{ id: '1470854989922-5be2f7456d78', caption: 'Photo by Piotr Łaskawski', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/GXMr7BadXQo (Hedgehog)
-	{ id: '1470317596697-cbdeda56f999', caption: 'Photo by Michel Bosma', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/XgF9e93Tkt0 (Ladybug)
+	// { id: '1470317596697-cbdeda56f999', caption: 'Photo by Michel Bosma', orientation: 'landscape', useForDemo: true }, // https://unsplash.com/photos/XgF9e93Tkt0 (Ladybug)
 ];
 const THEMED_IMAGES = [
 	{ id: '1471101173712-b9884175254e', caption: 'Photo by Pedro Lastra', orientation: 'square', useForDemo: true }, // https://unsplash.com/photos/5oRzZU5uwSM (Dragonfly)
@@ -108,7 +108,7 @@ render(
 			<p>Photos courtesy of <a href="https://unsplash.com/" target="_blank">Unsplash</a>. Use your keyboard to navigate <kbd>left</kbd> <kbd>right</kbd> <kbd>esc</kbd> &mdash; Also, try resizing your browser window.</p>
 		</div>
 		<h3>Default Options</h3>
-		<Gallery images={DEFAULT_IMAGES.map(({ caption, id, orientation, useForDemo }) => ({
+		<Gallery images={[...DEFAULT_IMAGES.map(({ caption, id, orientation, useForDemo }) => ({
 			src: makeUnsplashSrc(id),
 			thumbnail: makeUnsplashThumbnail(id, orientation),
 			srcset: [
@@ -120,8 +120,15 @@ render(
 			caption,
 			orientation,
 			useForDemo,
-		}))} />
-
+		})), {
+			src: 'http://i3.ytimg.com/vi/MhkGQAoc7bc/hqdefault.jpg',
+			thumbnail: 'http://i3.ytimg.com/vi/MhkGQAoc7bc/hqdefault.jpg',
+			srcset: ['http://i3.ytimg.com/vi/MhkGQAoc7bc/hqdefault.jpg'],
+			caption: 'Learn Reactjs!',
+			youtubeVideoId: 'MhkGQAoc7bc',
+			orientation: 'landscape',
+			useForDemo: true,
+		}]} />
 		<h3>With Thumbnails</h3>
 		<Gallery images={THUMBNAIL_IMAGES.map(({ caption, id, orientation, useForDemo }) => ({
 			src: makeUnsplashSrc(id),

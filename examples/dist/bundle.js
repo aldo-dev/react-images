@@ -2950,12 +2950,18 @@ var Lightbox = (function (_Component) {
 			var thumbnailsSize = showThumbnails ? _theme2['default'].thumbnail.size : 0;
 			var heightOffset = _theme2['default'].header.height + _theme2['default'].footer.height + thumbnailsSize + _theme2['default'].container.gutter.vertical + 'px';
 
-			var imageOrVideoEmbed = image.youtubeVideoId ? _react2['default'].createElement('iframe', {
-				width: '560',
-				height: '315',
-				src: '//www.youtube.com/embed/' + image.youtubeVideoId + '?autoplay=1',
-				frameBorder: '0',
-				allowfullscreen: true }) : _react2['default'].createElement('img', {
+			var imageOrVideoEmbed = image.youtubeVideoId ? _react2['default'].createElement(
+				'div',
+				{
+					className: (0, _aphroditeNoImportant.css)(classes.videoWrapper) },
+				_react2['default'].createElement('iframe', {
+					className: (0, _aphroditeNoImportant.css)(classes.wrappedVideoIframe),
+					width: '560',
+					height: '315',
+					src: '//www.youtube.com/embed/' + image.youtubeVideoId + '?autoplay=1',
+					frameBorder: '0',
+					allowfullscreen: true })
+			) : _react2['default'].createElement('img', {
 				className: (0, _aphroditeNoImportant.css)(classes.image),
 				onClick: !!onClickImage && onClickImage,
 				sizes: sizes,
@@ -3063,7 +3069,8 @@ Lightbox.childContextTypes = {
 
 var classes = _aphroditeNoImportant.StyleSheet.create({
 	content: {
-		position: 'relative'
+		position: 'relative',
+		width: '80%'
 	},
 	figure: {
 		margin: 0 },
@@ -3077,6 +3084,19 @@ var classes = _aphroditeNoImportant.StyleSheet.create({
 		// disable user select
 		WebkitTouchCallout: 'none',
 		userSelect: 'none'
+	},
+	videoWrapper: {
+		position: 'relative',
+		paddingBottom: '56.25%',
+		paddingTop: '25px',
+		height: 0
+	},
+	wrappedVideoIframe: {
+		position: 'absolute',
+		top: 0,
+		left: 0,
+		width: '100%',
+		height: '100%'
 	}
 });
 
